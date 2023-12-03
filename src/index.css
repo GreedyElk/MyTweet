@@ -1,0 +1,428 @@
+:root {
+  --bodyBackground : #15202B;
+
+  --TextBoxBorder : #CCCCCC;
+  --TextBoxColorText : #CCCCCC;
+  --TextBoxButtonBackgroundColorActive : #007BFF;
+  --TextBoxButtonColorActive : #FFF;
+  --more140chartsBackgroundColor : #F5C6CB;
+  --more140chartsColor : #721C24;
+  --more140chartsBorder : #F5C6CB;
+  --textBoxLoaderBackground : rgba(40, 44, 59, 0.589);
+
+  --TweetBackground : #343A40;
+  --TweetString : #6C757D;
+  --TweetTextColor : #FFFFFF;
+
+  --navbarTextcolor : rgba(255, 255, 255, 0.5);
+
+  --profileUserNameColor : rgba(255, 255, 255, 0.8);
+
+
+
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--bodyBackground);
+
+  font-family: Roboto;
+  font-size: 16px;
+}
+
+/*Navbar*/
+
+#navbar{
+  margin-bottom: 42px;
+
+  width: 1076px;
+  height: 58px;
+
+  display: flex;
+
+  border-radius: 6px;
+
+  background-color: var(--TweetBackground);
+
+  font-size: 14px;
+}
+#navbar a{
+  padding-left: 25.5px;
+  padding-right: 25.5px;
+  padding-top: 19px;
+  padding-bottom: 23px;
+
+  color: var(--navbarTextcolor);
+  text-decoration: none;
+}
+#navbar a.active{
+  color: var(--TweetTextColor);
+  pointer-events: none;
+}
+#navbar a:hover{
+  color: var(--TweetBackground);
+  background-color: var(--TweetTextColor);
+}
+#messageIndicator{
+  min-width: 35px;
+  width: fit-content;
+  height: 35px;
+
+  padding: 3px;
+
+  text-align: center;
+
+  align-self: center;
+  margin-left: auto;
+  margin-right: 25px;
+
+  border: solid 2px var(--TweetTextColor);
+  border-radius: 25%;
+
+  color: var(--TweetTextColor);
+  font-size: 24px;
+
+  -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  box-shadow: inset 0px 0px 0.5em 0px var(--glow-color),
+    0px 0px 0.5em 0px var(--glow-color);
+  animation: border-flicker 2s linear infinite;
+}
+#messageIndicator span{
+  position: relative;
+  top: 3px;
+
+  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
+    0 0 0.45em var(--glow-color);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+  animation: text-flicker 3s linear infinite;
+}
+@keyframes text-flicker {
+  0% {
+    opacity: 0.1;
+  }
+
+  2% {
+    opacity: 1;
+  }
+
+  8% {
+    opacity: 0.1;
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  12% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.7;
+  }
+  72% {
+    opacity: 0.2;
+  }
+
+  77% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity: 0.1;
+  }
+  2% {
+    opacity: 1;
+  }
+  4% {
+    opacity: 0.1;
+  }
+
+  8% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*Home page(tweets)*/
+
+/*TextBox*/
+
+#textBox{
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+
+  width: 600px;
+  height: 180px;
+
+  border: solid 2px var(--TextBoxBorder);
+  border-radius: 6px;
+
+  text-align: left;
+}
+#textInput{
+  height: auto;
+  width: 560px;
+  height: 106px;
+
+  margin-top: 20px;
+  margin-left: 16px;
+  margin-right: 20px;
+
+  resize: none;
+
+  background: none;
+  color: var(--TextBoxColorText);
+
+  font-size: 16px;
+
+  border: none;
+}
+
+#boxStr{
+  margin-left: 16px;
+  margin-top: 3px;
+  display: flex;
+}
+
+#more140charts{
+  width: 338px;
+  height: 16px;
+
+  padding-top: 5px;
+  padding-bottom: 7px;
+
+  margin-top: 1px;
+
+  border-radius: 4px;
+  border: 1px solid var(--more140chartsBorder);
+
+  background: var(--more140chartsBackgroundColor);
+
+  color: var(--more140chartsColor);
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+}
+#more140charts.inactive{
+  display: none;
+}
+
+#addButton{
+  margin-left: auto;
+  margin-right: 10px;
+
+  width: 68px;
+  height: 34px;
+  
+  color: var(--TextBoxButtonColorActive);
+  background-color: var(--TextBoxButtonBackgroundColorActive);
+
+  border: 0px;
+  border-radius: 4px;
+}
+#addButton:hover{
+  color: var(--TextBoxButtonBackgroundColorActive);
+  background-color: var(--TextBoxButtonColorActive);
+}
+
+#textBoxLoader{
+  height: 180px;
+  width: 600px;
+
+  position: absolute;
+  z-index: 500;
+
+  background-color: var(--textBoxLoaderBackground);
+
+}
+#textBoxLoader.inactive{
+  display: none;
+}
+.loader {
+  width: 48px;
+  height: 12px;
+  margin-top: 40px;
+  background: #FFF;
+  display: inline-block;
+  position: relative;
+  left: 45%;
+  top: 35%;
+}
+.loader::after {
+  content: '';  
+  left: 50%;
+  top: -47px;
+  transform: translate(-50%, 0);
+  position: absolute;
+  border: 15px solid transparent;
+  border-bottom-color: #FFF;
+  box-sizing: border-box;
+  animation: bump 0.4s ease-in-out infinite alternate;
+}
+.loader::before {
+  content: '';  
+  left: 50%;
+  bottom: 15px;
+  transform: translate(-50%, 0);
+  position: absolute;
+  width: 15px;
+  height: 20px;
+  background: #FFF;
+  box-sizing: border-box;
+  animation: bump 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes bump {
+  0% {
+    transform: translate(-50%, 5px);
+  }
+  100% {
+    transform: translate(-50%, -5px);
+  }
+}
+
+/*Tweet*/
+
+.tweet{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  padding: 20px;
+
+  width: 560px;
+  min-height: 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--TweetBackground);
+
+  border-radius: 6px;
+
+  text-align: left;
+}
+.stringProps{
+  height: 14px;
+
+  display: flex;
+
+  font-size: 14px;
+  color: var(--TweetString);
+}
+.date{
+  margin-left: auto;
+  position: relative;
+
+  justify-self: flex-end;
+
+}
+.tweetText{
+  max-width: 560px;
+
+  margin-top: 14px;
+
+  color: var(--TweetTextColor);
+}
+
+/*Scroll*/
+.tweetsScroll{
+  height: 520px;
+  width: 620px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  overflow: scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.tweetsScroll::-webkit-scrollbar{
+  display: none;
+}
+
+/*Profile page*/
+
+#profile{
+  width: 600px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  flex-direction: column;
+}
+#profileTitle{
+  align-self: flex-start;
+  justify-self: flex-start;
+
+  font-size: 36px;
+  color: var(--TweetTextColor);
+}
+#profileTitle{
+  display: flex;
+  flex-direction: column;
+}
+#profile #inputContainer{
+  display: flex;
+  flex-direction: column;
+}
+#profile #inputContainer span{
+  margin-top: 26px;
+
+  align-self: flex-start;
+
+  font-size: 18px;
+  color: var(--profileUserNameColor);
+}
+#inputContainer input{
+  margin-top: 6px;
+  padding-left: 16px;
+
+  width: 584px;
+  height: 61px;
+
+  background-color: unset;
+
+  border: none;
+  border: 2px solid var(--TextBoxBorder);
+  border-radius: 6px;
+
+  font-size: 16px;
+  color: var(--TweetTextColor);
+}
+#inputContainer #addButton{
+  margin-top: 18px;
+}
